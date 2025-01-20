@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:32:19 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/16 18:14:43 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:31:54 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,8 @@ typedef struct s_list
 }	t_list;
 
 // PRINTF function
-int				ft_putchar(char s);
-int				ft_putstr(char *str);
-int				ft_putnbr_int(int n);
-int				ft_print_memory(unsigned long nbr);
 int				ft_printf(const char *format, ...);
-int				ft_putnbr_unsigned(unsigned int n);
-int				ft_check_convert(char str, va_list ap);
-int				ft_putnbr_base(unsigned int nbr, char str);
+int				ft_dprintf(int fd, const char *format, ...);
 // LIBFT function
 char			*ft_itoa(int n);
 int				ft_tolower(int c);

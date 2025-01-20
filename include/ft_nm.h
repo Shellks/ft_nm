@@ -4,8 +4,6 @@
 #include "parser.h"
 #include "../srcs/utils/libft/include/libft.h"
 
-// ft_printf
-# include <stdio.h>
 // malloc - free
 # include <stdlib.h>
 

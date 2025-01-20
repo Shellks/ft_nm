@@ -4,7 +4,7 @@ void init_struct(t_nm *nm) {
     nm->binary = NULL;
     nm->options = malloc(sizeof(t_options));
     if (nm->options == NULL) {
-        ft_printf("Failed to allocate memory for struct options\n");
+        ft_dprintf(STDERR_FILENO, "Failed to allocate memory for struct options\n");
         exit(EXIT_ERROR);
     }
     ft_memset(nm->options, 0, sizeof(t_options));
@@ -14,7 +14,7 @@ int main(int argc, char **argv) {
     t_nm    nm;
 
     if (argc == 1) {
-        ft_printf("ft_nm: 'a.out': No such file\n");
+        ft_dprintf(STDERR_FILENO, "ft_nm: 'a.out': No such file\n");
         return ERROR;
     }
     init_struct(&nm);

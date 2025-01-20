@@ -6,7 +6,7 @@
 #    By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 23:11:22 by acarlott          #+#    #+#              #
-#    Updated: 2025/01/16 18:29:06 by acarlott         ###   ########.fr        #
+#    Updated: 2025/01/20 14:31:10 by acarlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,14 +61,8 @@ SRCS =	ft_atoi.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c\
-		ft_check_convert.c \
-		ft_putstr.c \
 		ft_printf.c \
-		ft_putchar.c \
-		ft_putnbr_int.c \
-		ft_putnbr_base.c \
-		ft_print_memory.c \
-		ft_putnbr_unsigned.c
+		ft_dprintf.c
 
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))

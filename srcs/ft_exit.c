@@ -2,8 +2,8 @@
 
 
 void ft_exit(t_nm *nm) {
-    if (nm->binary != NULL) {
-        ft_binary_clear(&nm->binary);
+    if (nm->files != NULL) {
+        lst_files_clear(&nm->files);
     }
     free(nm->options);
     exit(EXIT_ERROR);

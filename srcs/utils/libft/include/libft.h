@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:32:19 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/20 14:31:54 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:11:32 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ char			**ft_split(char const *s, char c);
 char			*ft_strrchr(const char *s, int c);
 void			*ft_calloc(size_t nmemb, size_t size);
 void			*ft_memset(void *b, int c, size_t len);
+int				ft_strcmp(const char *s1, const char *s2);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 void			*ft_memchr(const void *s, int c, size_t n);

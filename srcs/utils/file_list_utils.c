@@ -1,10 +1,10 @@
 #include "../../include/ft_nm.h"
 
-t_binary	*ft_binary_new_node(char *name)
+t_files	*lst_files_new_node(char *name)
 {
-	t_binary	*new_node;
+	t_files	*new_node;
 
-	new_node = malloc(sizeof(t_binary));
+	new_node = malloc(sizeof(t_files));
 	if (!new_node)
 		return (ERROR);
 	new_node->name = name;
@@ -12,7 +12,7 @@ t_binary	*ft_binary_new_node(char *name)
 	return (new_node);
 }
 
-t_binary	*ft_binary_last(t_binary *lst)
+t_files	*lst_files_last(t_files *lst)
 {
 	if (!lst)
 		return (0);
@@ -21,35 +21,35 @@ t_binary	*ft_binary_last(t_binary *lst)
 	return (lst);
 }
 
-void	ft_binary_delone(t_binary *lst)
+void	lst_files_delone(t_files *lst)
 {
 	if (lst)
 		free(lst);
 }
 
-void	ft_binary_clear(t_binary **lst)
+void	lst_files_clear(t_files **lst)
 {
-	t_binary	*tmp;
+	t_files	*tmp;
 
 	if (!lst)
 		return ;
 	while (*lst) {
 		tmp = (*lst)->next;
-		ft_binary_delone(*lst);
+		lst_files_delone(*lst);
 		*lst = tmp;
 	}
 	*lst = 0;
 }
 
-void	ft_binary_add_back(t_binary **lst, t_binary *new_node)
+void	lst_files_add_back(t_files **lst, t_files *new_node)
 {
-	t_binary	*tmp;
+	t_files	*tmp;
 
 	if (!new_node)
 		return ;
 	if (lst) {
 		if (*lst) {
-			tmp = ft_binary_last(*lst);
+			tmp = lst_files_last(*lst);
 			tmp->next = new_node;
 		} else
 			*lst = new_node;

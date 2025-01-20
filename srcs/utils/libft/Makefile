@@ -6,7 +6,7 @@
 #    By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 23:11:22 by acarlott          #+#    #+#              #
-#    Updated: 2025/01/20 14:31:10 by acarlott         ###   ########.fr        #
+#    Updated: 2025/01/20 15:12:41 by acarlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ SRCS =	ft_atoi.c \
 		ft_strjoin.c \
 		ft_strlcpy.c \
 		ft_strmapi.c \
+		ft_strcmp.c \
 		ft_strncmp.c \
 		ft_strrchr.c \
 		ft_strnstr.c \

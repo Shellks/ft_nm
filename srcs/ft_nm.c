@@ -1,7 +1,7 @@
 #include "../include/ft_nm.h"
 
 void init_struct(t_nm *nm) {
-    nm->binary = NULL;
+    nm->files = NULL;
     nm->options = malloc(sizeof(t_options));
     if (nm->options == NULL) {
         ft_dprintf(STDERR_FILENO, "Failed to allocate memory for struct options\n");

@@ -612,7 +612,7 @@ DESCRIPTION
               STT_SECTION
                      The symbol is associated with a section.  Symbol table entries of this type exist primarily for relocation and normally have STB_LOCAL bindings.
 
-              STT_FILE
+              STt_files
                      By  convention,  the  symbol's name gives the name of the source file associated with the object file.  A file symbol has STB_LOCAL bindings, its section index is SHN_ABS,
                      and it precedes the other STB_LOCAL symbols of the file, if it is present.
 
@@ -865,7 +865,7 @@ DESCRIPTION
                    NT_LWPSINFO          lwpinfo struct
                    NT_PRFPXREG          fprxregset struct
                    NT_SIGINFO           siginfo_t (size might increase over time)
-                   NT_FILE              Contains information about mapped files
+                   Nt_files              Contains information about mapped files
                    NT_PRXFPREG          user_fxsr_struct
                    NT_PPC_VMX           PowerPC Altivec/VMX registers
                    NT_PPC_SPE           PowerPC SPE/EVR registers

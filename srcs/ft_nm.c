@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:22:09 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/21 11:22:06 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:55:11 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	init_struct(t_nm *nm) {
 	}
 	ft_memset(nm->options, 0, sizeof(t_options));
 }
+
 
 int	main(int argc, char **argv) {
 	t_nm	nm;

@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:32:24 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/21 11:29:41 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:40:19 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 #include <sys/mman.h>
 // fstat
 #include <sys/stat.h>
+// ELF struct
+#include <elf.h>
 
 # define EXIT_SUCCESS 0
 # define EXIT_ERROR 1
@@ -48,6 +50,7 @@ ft_nm: supported targets: x86_32, x64, object files, .so\n"
 // Main struct
 typedef struct s_nm
 {
+    int     arch_type;
     t_options *options;
     t_files  *files;
 }	t_nm;

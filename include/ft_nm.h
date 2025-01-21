@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_nm.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 09:32:24 by acarlott          #+#    #+#             */
+/*   Updated: 2025/01/21 11:29:41 by acarlott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_NM_H
 # define FT_NM_H
 
@@ -6,6 +18,14 @@
 
 // malloc - free
 # include <stdlib.h>
+// Open
+#include <fcntl.h>
+// Errno
+#include <errno.h>
+// mmap
+#include <sys/mman.h>
+// fstat
+#include <sys/stat.h>
 
 # define EXIT_SUCCESS 0
 # define EXIT_ERROR 1
@@ -22,6 +42,8 @@ The options are:\n \
 -r, --reverse-sort     Reverse the sense of the sort\n \
 -u, --undefined-only   Display only undefined symbols\n\
 ft_nm: supported targets: x86_32, x64, object files, .so\n"
+# define MEMORY_FAILED "ft_nm: Failed to allocate memory\n"
+# define OPEN_FAILED "ft_nm: Failed to open file \'%s\'\n"
 
 // Main struct
 typedef struct s_nm
@@ -30,10 +52,14 @@ typedef struct s_nm
     t_files  *files;
 }	t_nm;
 
-// Main parser function
-int args_parser(t_nm *nm, int argc, char **argv);
+// Main functions
+int  args_parser(t_nm *nm, int argc, char **argv);
+void files_manager(t_nm *nm);
+
 
 //Utils function
-void ft_exit(t_nm *nm);
+void ft_exit(t_nm *nm, int error_code);
+void ft_perror(char *file);
+
 
 #endif

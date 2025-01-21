@@ -11,7 +11,10 @@ LIBFT = srcs/utils/libft/libft.a
 
 SRCS =	ft_nm.c \
 		parser.c \
+		utils/parser_utils.c \
 		utils/file_list_utils.c \
+		utils/ft_perror.c \
+		file_manager.c \
 		ft_exit.c
 
 OBJS = $(addprefix $(OBJS_DIR), $(SRCS:.c=.o))

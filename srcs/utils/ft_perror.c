@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 11:06:23 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/21 11:06:34 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:29:43 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void ft_perror(char *file) {
 		ft_dprintf(STDERR_FILENO, "ft_nm: \'%s\': Interrupted system call\n", file);
 		break;
 	case EISDIR:
-		ft_dprintf(STDERR_FILENO, "ft_nm: \'%s\': Is a directory\n", file);
+		ft_dprintf(STDERR_FILENO, "ft_nm: Warning: \'%s\': Is a directory\n", file);
 		break;
 	case ELOOP:
 		ft_dprintf(STDERR_FILENO, "ft_nm: \'%s\': Too many symbolic links encountered\n", file);

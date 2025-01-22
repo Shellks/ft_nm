@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:13:06 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/21 09:13:08 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:23:15 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_files	*lst_files_new_node(char *name)
 
 	new_node = malloc(sizeof(t_files));
 	if (!new_node)
-		return (ERROR);
+		return (NULL);
+	new_node->size = 0;
+	new_node->arch_type = 0;
+	new_node->mapped = NULL;
 	new_node->name = name;
     new_node->next = NULL;
 	return (new_node);

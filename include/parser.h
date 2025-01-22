@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:32:18 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/22 18:32:58 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:04:39 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ off_t get_file_size(int fd);
 void *get_mapped_file(int fd, off_t file_size);
 bool check_magic_elf_word(void *mapped);
 int get_file_arch_type(void *mapped);
-void invalid_file(t_files *file);
+void invalid_file(t_nm *nm, t_files *file);
 bool check_64bits_file(Elf64_Ehdr *elf_hdr, t_files *file);
 bool check_32bits_file(Elf32_Ehdr *elf_hdr, t_files *file);
 // DEBUG Function

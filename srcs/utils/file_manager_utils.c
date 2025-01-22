@@ -61,14 +61,13 @@ bool check_64bits_file(Elf64_Ehdr *elf_hdr, t_files *file) {
 	if (elf_hdr->e_type == ET_NONE) { // file type check
 		return false;
 	}
-	if (file->size < elf_hdr->e_ehsize) {
+	if (file->size < elf_hdr->e_ehsize) { // check elf header size
 		return false;	
 	}
-	if (elf_hdr->e_shentsize != sizeof(Elf64_Shdr)) {
+	if (elf_hdr->e_shentsize != sizeof(Elf64_Shdr)) { // check section header size
 		return false;
 	}
-	if (elf_hdr->e_type != ET_REL && elf_hdr->e_phentsize != sizeof(Elf64_Phdr)) {
-		ft_dprintf(STDERR_FILENO, "ft_nm: \'%s\': file format not recognized\n", file->name);
+	if (elf_hdr->e_type != ET_REL && elf_hdr->e_phentsize != sizeof(Elf64_Phdr)) { // check program header file only if file is not .o
 		return false;
 	}
 	return true;
@@ -78,22 +77,24 @@ bool check_32bits_file(Elf32_Ehdr *elf_hdr, t_files *file) {
 	if (elf_hdr->e_type == ET_NONE) { // file type check
 		return false;
 	}
-	if (file->size < elf_hdr->e_ehsize) {
+	if (file->size < elf_hdr->e_ehsize) { // check elf header size
 		return false;	
 	}
-	if (elf_hdr->e_shentsize != sizeof(Elf32_Shdr)) {
+	if (elf_hdr->e_shentsize != sizeof(Elf32_Shdr)) { // check section header size
 		return false;
 	}
-	if (elf_hdr->e_type != ET_REL && elf_hdr->e_phentsize != sizeof(Elf32_Phdr)) {
-		ft_dprintf(STDERR_FILENO, "ft_nm: \'%s\': file format not recognized\n", file->name);
+	if (elf_hdr->e_type != ET_REL && elf_hdr->e_phentsize != sizeof(Elf32_Phdr)) { // check program header file only if file is not .o
 		return false;
 	}
 	return true;
 }
 
-void invalid_file(t_files *file) {
+void invalid_file(t_nm *nm, t_files *file) {
 	ft_dprintf(STDERR_FILENO, "ft_nm: \'%s\': file format not recognized\n", file->name);
 	if (file->mapped)
-		munmap(file->mapped, file->size);
+		if (munmap(file->mapped, file->size) == ERROR) {
+			ft_dprintf(STDERR_FILENO, "ft_nm: %s\n", strerror(errno));
+			ft_exit(nm, errno);
+		}
 	return;
 }

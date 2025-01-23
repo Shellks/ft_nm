@@ -6,13 +6,12 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:27:29 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/21 11:19:14 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:31:13 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_nm.h"
 
-static bool	files_handler(t_nm *nm, char *file);
 static void options_handler(t_nm *nm, char *option);
 
 // Main parser function
@@ -24,8 +23,7 @@ int	args_parser(t_nm *nm, int argc, char **argv)
 	for (int i = 1; i < argc; i++) {
 		if (!ft_strcmp(argv[i], "--")) {
 			if (options_end) {
-				if (files_handler(nm, argv[i]) == false)
-					return ERROR;
+				files_handler(nm, argv[i]);
 				continue;
 			}
 			options_end = true;
@@ -34,8 +32,7 @@ int	args_parser(t_nm *nm, int argc, char **argv)
 		if (!options_end && argv[i][0] == '-' && argv[i][1])
 			options_handler(nm, argv[i]);
 		else
-			if (files_handler(nm, argv[i]) == false)
-				return ERROR;
+			files_handler(nm, argv[i]);
 	}
 	return SUCCESS;
 }
@@ -57,13 +54,12 @@ static void options_handler(t_nm *nm, char *option) {
 	}
 }
 
-// Files parser function
-static bool files_handler(t_nm *nm, char *file) {
+// Add files to list function
+void files_handler(t_nm *nm, char *file) {
 	t_files *node = lst_files_new_node(file);
 	if (!node) {
 		ft_dprintf(STDERR_FILENO, "Failed to create new list file node..");
-		ft_exit(nm, EXIT_ERROR);
+		ft_exit(nm, EXIT_FAILURE);
 	}
 	lst_files_add_back(&nm->files, node);
-	return true;
 }

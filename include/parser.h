@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:32:18 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/22 19:04:39 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:27:10 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	    lst_files_add_back(t_files **lst, t_files *new_node);
 // args parser Utils
 bool handle_flag_option(t_nm *nm, char flag);
 bool handle_word_option(t_nm *nm, char *option);
+void files_handler(t_nm *nm, char *file);
 void handle_options_error(t_nm *nm);
 // File parser utils
 int get_fd(char *file_name);

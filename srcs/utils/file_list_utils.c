@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:13:06 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/22 18:23:15 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:27:49 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	lst_files_add_back(t_files **lst, t_files *new_node)
 	t_files	*tmp;
 
 	if (!new_node)
-		return ;
+		return;
 	if (lst) {
 		if (*lst) {
 			tmp = lst_files_last(*lst);

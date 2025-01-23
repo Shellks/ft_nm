@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:32:24 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/22 18:32:54 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:31:09 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 #include <sys/mman.h>
 
 # define EXIT_SUCCESS 0
-# define EXIT_ERROR 1
 # define SUCCESS 1
 # define ERROR -1
 # define FALSE 0

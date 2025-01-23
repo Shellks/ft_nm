@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:13:00 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/21 10:19:43 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:31:13 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool handle_word_option(t_nm *nm, char *option) {
 // Manage quit and display of error with given option
 void handle_options_error(t_nm *nm) {
 	ft_dprintf(STDERR_FILENO, OPTION_ERROR);
-	ft_exit(nm, EXIT_ERROR);
+	ft_exit(nm, EXIT_FAILURE);
 }
 
 void print_file_list(t_nm *nm) { //DEBUG FUNCTION

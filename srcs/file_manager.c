@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:55:33 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/22 19:05:28 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/01/23 09:48:17 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static void file_executor(t_nm *nm, t_files *file) {
 	if (check_magic_elf_word(file->mapped) == false)
 		return invalid_file(nm, file);
 	file->arch_type = get_file_arch_type(file->mapped);
-	if (file->arch_type == ELFCLASSNONE)
-		return invalid_file(nm, file);
 	if (file->arch_type == ELFCLASS64)
 		manage_64bits_file(nm, file);
-	else
+	else if (file->arch_type == ELFCLASS32)
 		manage_32bits_file(nm, file);
+	else
+		return invalid_file(nm, file);
 	if (munmap(file->mapped, file->size) == ERROR) {
 		ft_dprintf(STDERR_FILENO, "ft_nm: %s\n", strerror(errno));
 		ft_exit(nm, errno);

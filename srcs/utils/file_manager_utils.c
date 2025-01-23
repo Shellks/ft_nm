@@ -64,12 +64,16 @@ bool check_64bits_file(Elf64_Ehdr *elf_hdr, t_files *file) {
 	if (file->size < elf_hdr->e_ehsize) { // check elf header size
 		return false;	
 	}
-	if (elf_hdr->e_shentsize != sizeof(Elf64_Shdr)) { // check section header size
+	if (elf_hdr->e_shentsize != sizeof(Elf64_Shdr) || !elf_hdr->e_shoff) { // check section header size
 		return false;
 	}
-	if (elf_hdr->e_type != ET_REL && elf_hdr->e_phentsize != sizeof(Elf64_Phdr)) { // check program header file only if file is not .o
+	if (elf_hdr->e_type != ET_REL && (elf_hdr->e_phentsize != sizeof(Elf64_Phdr) || !elf_hdr->e_phoff)) { // check program header file only if file is not .o
 		return false;
 	}
+	// if (elf_hdr->e_type != ET_REL && !elf_hdr->e_entry)
+	// 	return false;
+	// if (elf_hdr->e_entry < elf_hdr->e_phoff || elf_hdr->e_entry < elf_hdr->e_shoff)
+	// 	return false;
 	return true;
 }
 
@@ -80,12 +84,16 @@ bool check_32bits_file(Elf32_Ehdr *elf_hdr, t_files *file) {
 	if (file->size < elf_hdr->e_ehsize) { // check elf header size
 		return false;	
 	}
-	if (elf_hdr->e_shentsize != sizeof(Elf32_Shdr)) { // check section header size
+	if (elf_hdr->e_shentsize != sizeof(Elf32_Shdr) || !elf_hdr->e_shoff) { // check section header size
 		return false;
 	}
-	if (elf_hdr->e_type != ET_REL && elf_hdr->e_phentsize != sizeof(Elf32_Phdr)) { // check program header file only if file is not .o
+	if (elf_hdr->e_type != ET_REL && (elf_hdr->e_phentsize != sizeof(Elf32_Phdr) || !elf_hdr->e_phoff)) { // check program header file only if file is not .o
 		return false;
 	}
+	// if (elf_hdr->e_type != ET_REL && !elf_hdr->e_entry)
+	// 	return false;
+	// if (elf_hdr->e_entry < elf_hdr->e_phoff + elf_hdr->e_shoff)
+	// 	return false;
 	return true;
 }
 

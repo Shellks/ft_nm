@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:22:09 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/23 09:43:14 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:27:14 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 void	init_struct(t_nm *nm) {
 	nm->files = NULL;
 	nm->options = malloc(sizeof(t_options));
-	if (nm->options == NULL)
-	{
+	if (nm->options == NULL) {
 		ft_dprintf(STDERR_FILENO, MEMORY_FAILED);
 		exit(EXIT_FAILURE);
 	}

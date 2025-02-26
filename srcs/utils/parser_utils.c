@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:13:00 by acarlott          #+#    #+#             */
-/*   Updated: 2025/01/23 09:39:33 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:58:36 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,25 +55,25 @@ void handle_options_error(t_nm *nm) {
 	ft_exit(nm, EXIT_FAILURE);
 }
 
-void print_file_list(t_nm *nm) { //DEBUG FUNCTION
-	t_files *nm_files = nm->files;
-	ft_printf("-> Files list:\n");
-	while (nm_files) {
-		ft_printf("| %s\n", nm_files->name);
-		nm_files = nm_files->next;
-	}
-}
+// void print_file_list(t_nm *nm) { //DEBUG FUNCTION
+// 	t_files *nm_files = nm->files;
+// 	ft_printf("-> Files list:\n");
+// 	while (nm_files) {
+// 		ft_printf("| %s\n", nm_files->name);
+// 		nm_files = nm_files->next;
+// 	}
+// }
 
-void print_options(t_nm *nm) { //DEBUG FUNCTION
-	ft_printf("-> Options list:\n");
-	if (nm->options->a)
-		ft_printf("| \'-a\'\n");
-	if (nm->options->g)
-		ft_printf("| \'-g\'\n");
-	if (nm->options->p)
-		ft_printf("| \'-p\'\n");
-	if (nm->options->r)
-		ft_printf("| \'-r\'\n");
-	if (nm->options->u)
-		ft_printf("| \'-u\'\n");
-}
+// void print_options(t_nm *nm) { //DEBUG FUNCTION
+// 	ft_printf("-> Options list:\n");
+// 	if (nm->options->a)
+// 		ft_printf("| \'-a\'\n");
+// 	if (nm->options->g)
+// 		ft_printf("| \'-g\'\n");
+// 	if (nm->options->p)
+// 		ft_printf("| \'-p\'\n");
+// 	if (nm->options->r)
+// 		ft_printf("| \'-r\'\n");
+// 	if (nm->options->u)
+// 		ft_printf("| \'-u\'\n");
+// }

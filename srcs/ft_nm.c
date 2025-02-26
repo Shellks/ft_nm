@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:22:09 by acarlott          #+#    #+#             */
-/*   Updated: 2025/02/25 13:27:14 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:58:46 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	main(int argc, char **argv) {
 	if (!nm.files) { // add a.out to files if no files is given
 		files_handler(&nm, "a.out");
 	}
-	ft_printf("-----------------------------\n");
-	ft_printf("Debug output:\n\n");
-	print_options(&nm);
-	print_file_list(&nm);
-	ft_printf("-----------------------------\n");
-	ft_printf("Standard output:\n\n");
+	// ft_printf("-----------------------------\n");
+	// ft_printf("Debug output:\n\n");
+	// print_options(&nm);
+	// print_file_list(&nm);
+	// ft_printf("-----------------------------\n");
+	// ft_printf("Standard output:\n\n");
 	files_manager(&nm);
 	ft_exit(&nm, EXIT_SUCCESS);
 }

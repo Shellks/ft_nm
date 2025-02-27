@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:32:24 by acarlott          #+#    #+#             */
-/*   Updated: 2025/02/27 19:02:03 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:32:33 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void files_manager(t_nm *nm);
 // Symbol function
 //64bits
 char get_64bits_symbol_type(Elf64_Sym *symbol, Elf64_Shdr *section_headers, char *strtab);
-void print_64bits_symbols(t_files *file, Elf64_Shdr *section_headers, Elf64_Shdr *symtab_section, Elf64_Shdr *strtab_section, char *shstrtab);
+void print_64bits_symbols(t_files *file, Elf64_Shdr *section_headers, Elf64_Shdr *symtab_section, Elf64_Shdr *strtab_section, char *shstrtab, t_options *options);
 //32bits
 
 // sort method

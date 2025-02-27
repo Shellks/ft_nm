@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:55:33 by acarlott          #+#    #+#             */
-/*   Updated: 2025/02/27 19:04:07 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:32:47 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void manage_64bits_file(t_nm *nm, t_files *file) {
 	if (!symtab_section || !strtab_section)
 		return invalid_file(nm, file);
 
-	print_64bits_symbols(file, section_headers, symtab_section, strtab_section, shstrtab);
+	print_64bits_symbols(file, section_headers, symtab_section, strtab_section, shstrtab, nm->options);
 }
 
 static void manage_32bits_file(t_nm *nm, t_files *file) {

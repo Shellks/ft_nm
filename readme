@@ -7,3 +7,9 @@ A faire :
 
 - les options pour le bonus
 - mettre en place la gestion du 32bits (rearrangement de la methode deja coder pour le 64bits)
+
+! PRIORITE SUR LES OPTIONS DE PRINT!
+ne faire que l'option la plus haute en priorite si plusieurs sont presentes
+1- '-u'
+2- '-g'
+3- '-a'

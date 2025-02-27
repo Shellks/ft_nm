@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:55:33 by acarlott          #+#    #+#             */
-/*   Updated: 2025/02/27 16:43:13 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:04:07 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,38 +51,29 @@ static void file_executor(t_nm *nm, t_files *file) {
 
 
 static void manage_64bits_file(t_nm *nm, t_files *file) {
+    Elf64_Shdr *symtab_section = NULL; // adress of symbols section
+    Elf64_Shdr *strtab_section = NULL; // adress of symbols name section
 	Elf64_Ehdr *elf_hdr = (Elf64_Ehdr *)file->mapped; // cast mapped file in elf header format
+	
 	if (check_64bits_file(elf_hdr, file) == false)
 		return invalid_file(nm, file);
+
 	Elf64_Shdr *section_headers = (Elf64_Shdr *)((char *)file->mapped + elf_hdr->e_shoff); // adress of section headers
 	Elf64_Shdr *shstrtab_section = &section_headers[elf_hdr->e_shstrndx]; // adress of shstrtab section
 	char *shstrtab = (char *)file->mapped + shstrtab_section->sh_offset; // adress of section name
-    Elf64_Shdr *symtab_section = NULL;
-    Elf64_Shdr *strtab_section = NULL;
+
 	for (int i = 0; i < elf_hdr->e_shnum; i++) {
 		Elf64_Shdr *section = &section_headers[i];
 		if (section->sh_type == SHT_SYMTAB) {
-			symtab_section = section; // offset of symbols table
-			strtab_section = &section_headers[section->sh_link]; // offset of strtab section (symbol name)
+			symtab_section = section;
+			strtab_section = &section_headers[section->sh_link];
 		}
 	}
-	if (!symtab_section || !strtab_section) {
+	
+	if (!symtab_section || !strtab_section)
 		return invalid_file(nm, file);
-	}
-	Elf64_Sym	*symbols = (Elf64_Sym *)((char *)file->mapped + symtab_section->sh_offset); // address of symbols table
-	char		*strtab = (char *)file->mapped + strtab_section->sh_offset; // address of strtab section (symbol name)
-	int 		symbol_count = symtab_section->sh_size / sizeof(Elf64_Sym);
-	sort_symbols_by_name(symbols, symbol_count, strtab);
-	for (int i = 1; i < symbol_count; i++) {
-		Elf64_Sym	*symbol = &symbols[i];
-		char symbol_type = get_64bits_symbol_type(symbol, section_headers, shstrtab);
-		if (symbol->st_shndx == SHN_UNDEF) {
-            printf("                 ");
-        } else {
-            printf("%016lx ", symbol->st_value);
-        }
-		printf("%c %s\n", symbol_type, symbol->st_name + strtab);
-	}
+
+	print_64bits_symbols(file, section_headers, symtab_section, strtab_section, shstrtab);
 }
 
 static void manage_32bits_file(t_nm *nm, t_files *file) {

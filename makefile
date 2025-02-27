@@ -16,6 +16,7 @@ SRCS =	ft_nm.c \
 		utils/file_manager_utils.c \
 		utils/ft_perror.c \
 		file_manager.c \
+		print_64bits_symbols.c \
 		get_64bits_symbols.c \
 		sort_symbols_list.c \
 		ft_exit.c

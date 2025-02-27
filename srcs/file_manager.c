@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:55:33 by acarlott          #+#    #+#             */
-/*   Updated: 2025/02/26 18:46:54 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:43:13 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ static void manage_64bits_file(t_nm *nm, t_files *file) {
 	Elf64_Sym	*symbols = (Elf64_Sym *)((char *)file->mapped + symtab_section->sh_offset); // address of symbols table
 	char		*strtab = (char *)file->mapped + strtab_section->sh_offset; // address of strtab section (symbol name)
 	int 		symbol_count = symtab_section->sh_size / sizeof(Elf64_Sym);
-	sort_symbols_by_name(symbols, symbol_count, strtab, strtab_section);
+	sort_symbols_by_name(symbols, symbol_count, strtab);
 	for (int i = 1; i < symbol_count; i++) {
 		Elf64_Sym	*symbol = &symbols[i];
-		char symbol_type = get_64bits_symbol_type(symbol, section_headers, shstrtab, elf_hdr->e_shnum);
+		char symbol_type = get_64bits_symbol_type(symbol, section_headers, shstrtab);
 		if (symbol->st_shndx == SHN_UNDEF) {
             printf("                 ");
         } else {

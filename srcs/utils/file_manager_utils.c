@@ -21,7 +21,7 @@ off_t get_file_size(int fd) {
 }
 
 void *get_mapped_file(int fd, off_t file_size) {
-	void *mapped = mmap(NULL, file_size, PROT_READ, MAP_PRIVATE, fd, 0);
+	void *mapped = mmap(NULL, file_size, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
 	if (mapped == MAP_FAILED) {
 		ft_dprintf(STDERR_FILENO, "ft_nm: %s\n", strerror(errno));
 		close(fd);

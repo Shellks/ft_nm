@@ -6,7 +6,7 @@
 /*   By: acarlott <acarlott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 18:27:23 by acarlott          #+#    #+#             */
-/*   Updated: 2025/02/27 17:07:12 by acarlott         ###   ########.fr       */
+/*   Updated: 2025/02/27 18:46:03 by acarlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static char get_64bits_symbol_type_by_section_type(unsigned char binding, Elf64_
 			else // larger data
 				return (binding == STB_GLOBAL) ? 'B' : 'b'; 
 		case SHT_PROGBITS: // check if symbol is in .data section
-			if (symbol->st_size <= sizeof(int)) // is considered as small data (<= int/char)
-				return (binding == STB_GLOBAL) ? 'G' : 'g';
-			else // larger data
+			// if (symbol->st_size <= sizeof(int)) // is considered as small data (<= int/char)
+			// 	return (binding == STB_GLOBAL) ? 'G' : 'g';
+			// else // larger data
 				return (binding == STB_GLOBAL) ? 'D' : 'd'; 
     	case SHT_DYNAMIC:  // check if symbol is dynamic
         	return 'd';

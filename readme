@@ -1,6 +1,7 @@
 A tester :
 
 - mettre des symboles de degogage 'N' et verifer si le '-a' les affichent ou non
+- Tester les symbole 'G' et 'g' voir si il sont afficher par ex. avec un global int ou autre ?
 
 A faire :
 
